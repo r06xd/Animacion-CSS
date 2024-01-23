@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: darkslategrey;
+            margin: 0;
+        }
+        .container{
+            width: 100%;
+            height:100vh;
+            perspective:80px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            position: relative;
+        }
+        img{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: 0 50%;
+            width: 100%;
+        }
+        .header{
+            height: auto;
+            width: 100%;
+            transform: translateZ(0px) scale(1.5);
+            transform-origin: 0 50%;
+        }
+        .body-continer{
+            height: 100%;
+            width: 100%;
+            transform: translateZ(5px) scale(0.375);
+            transform-origin: 50%;
+        }
+        .foother{
+            transform: translateZ(25px) scale(0.89);
+            transform-origin: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/resources/wallpaper-vertical.jpg" alt="">
+        </div>
+        <div class="body-continer">
+            <div class="card1"></div>
+            <div class="card2"></div>
+            <div class="card3"></div>
+        </div>
+        <div class="foother">
+            <img src="/resources/Lucy.png" alt="">
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: darkslategrey;
+        }
+        .container{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 5px solid #08a0a0;
+            perspective: 100px;
+            transition:0.5s;
+        }
+        .item{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: hsl(246, 87%, 28%);
+            opacity: 0.5;
+            transform-style:preserve-3d;
+            transform:rotateX(20deg);
+            transition:0.5s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+
+        </div>
+    </div>
+    
+</body>
+</html>
