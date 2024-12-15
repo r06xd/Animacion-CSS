@@ -32,6 +32,7 @@
     </style>
 </head>
 <body>
+
     <h1>
         <a href="/">Alicia</a>
         <p>En el </p>
@@ -60,5 +61,68 @@
     </li>
 </ul>
 
+<h1>Reproductor musica</h1>
+<h1>Spotify Web Playback SDK Quick Start</h1>
+
+    <button id="backPlay">Atras</button>
+    <button id="togglePlay">Toggle Play</button>
+    <button id="nextPlay">Siguiente</button>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            console.log("segenera el player");
+            const token = 'BQBh6OeWxfJmoO9y77p5VZ_1p9aFXV5UToIkPrGSUEakCdAOmJ3ZW97SbReI9rYfeZ8hWEa8wVtn6nkKC9ClRObfPLYcuW4JiRcgRQewBobXQWR5KpJx07G6-DazLzLdE_8tHEm9EvjX5RXC5CAzpVtYwPivv0nr69gxFpV6WYqViuKuxlOPC_jap4JbpdTPBrfjtP6AoF6b9wkZnQ';
+            const player = new Spotify.Player({
+                name: 'Reproductor Ubuntu',
+                getOAuthToken: cb => { cb(token); },
+                volume: 0.5
+            });
+            console.log(player);
+            // Ready
+            player.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+            });
+
+            // Not Ready
+            player.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_isd);
+            });
+
+            player.addListener('initialization_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('authentication_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('account_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.previousTrack().then(() => {
+                console.log('Set to previous track!');
+            });
+
+            player.nextTrack().then(() => {
+                console.log('Skipped to next track!');
+            });
+
+            document.getElementById('backPlay').onclick = function() {
+              player.previousTrack();
+            };
+
+            document.getElementById('togglePlay').onclick = function() {
+              player.togglePlay();
+              window.alert("entra en toggleplay");
+            };
+
+            document.getElementById('nextPlay').onclick = function() {
+              player.nextTrack();
+            };
+            player.connect();
+        }
+    </script>
 </body>
 </html>
